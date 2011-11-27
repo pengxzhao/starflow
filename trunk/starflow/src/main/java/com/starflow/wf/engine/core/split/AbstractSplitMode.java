@@ -19,8 +19,6 @@ package com.starflow.wf.engine.core.split;
 import java.util.List;
 import java.util.Map;
 
-import javax.script.ScriptEngineManager;
-
 import com.starflow.wf.engine.core.Constants;
 import com.starflow.wf.engine.core.ExpressionHandlerFactory;
 import com.starflow.wf.engine.core.RelaDataManagerBuilder;
@@ -59,7 +57,7 @@ abstract public class AbstractSplitMode implements SplitMode {
 			// (2) 它与该活动连线上条件为“true”。
 			List<TransitionElement> transitions = activityXml.getBeforeTrans();
 			int finishCount = event.getActInstRep().findFromTransCtrls(event.getProcessInstance().getProcessInstId(), activityXml.getId());
-			int count = findTransitonsForJexl(event, event.getProcessEngine().getScriptEngineManager(), transitions);
+			int count = findTransitonsForJexl(event, transitions);
 			
 			if(count == (++finishCount)) {
 				isStartAct = true;
@@ -100,7 +98,7 @@ abstract public class AbstractSplitMode implements SplitMode {
 	 * @param transitions
 	 * @return
 	 */
-	private int findTransitonsForJexl(AbstractFlowEvent event, ScriptEngineManager engineManager, List<TransitionElement> transitions) {
+	private int findTransitonsForJexl(AbstractFlowEvent event, List<TransitionElement> transitions) {
 		int count = 0;
 		
 		RelaDataManager relaDataManager = RelaDataManagerBuilder.buildRelaDataManager();
@@ -118,7 +116,7 @@ abstract public class AbstractSplitMode implements SplitMode {
 			IExpressionHandler expressionHandler = 
 				ExpressionHandlerFactory.buildExpressionHandler(transitionXml.getIsSimpleExpression());
 			
-			if(expressionHandler.execute(engineManager, transitionXml, conditions))
+			if(expressionHandler.execute(transitionXml, conditions))
 				count++;
 		}
 		return count;

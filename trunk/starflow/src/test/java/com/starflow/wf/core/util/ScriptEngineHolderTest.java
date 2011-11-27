@@ -14,17 +14,26 @@
  * limitations under the License.
  */
 
-package com.starflow.wf.engine.core.expression;
+package com.starflow.wf.core.util;
 
-import java.util.Map;
+import static org.junit.Assert.assertTrue;
 
-import com.starflow.wf.engine.model.elements.TransitionElement;
+import org.junit.Test;
+
+import com.googlecode.aviator.script.AviatorScriptEngine;
+import com.starflow.wf.core.script.spel.SpelScriptEngine;
 
 /**
  * 
- * @author libinsong1204@gmail.com
- * @version 1.0
+ * @author  libinsong1204@gmail.com
+ * @date    2011-1-18 上午11:03:34
+ * @version 
  */
-public interface IExpressionHandler {
-	public boolean execute(TransitionElement transition, Map<String, Object> conditions);
+public class ScriptEngineHolderTest {
+	
+	@Test
+	public void checkEngine() {
+		assertTrue(ScriptEngineHolder.getScriptEngine() instanceof AviatorScriptEngine);
+		assertTrue(ScriptEngineHolder.getScriptEngine("SpringExpression") instanceof SpelScriptEngine);
+	}
 }

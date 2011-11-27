@@ -140,7 +140,7 @@ public class ActivityCreateListener extends AbstractProcessListener {
 			IExpressionHandler expressionHandler = 
 				ExpressionHandlerFactory.buildExpressionHandler(transitionXml.getIsSimpleExpression());
 			
-			if(expressionHandler.execute(event.getProcessEngine().getScriptEngineManager(), transitionXml, conditions))
+			if(expressionHandler.execute(transitionXml, conditions))
 				tranEls.add(transitionXml);
 		}
 		

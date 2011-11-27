@@ -1,1 +1,2 @@
-com.starflow.wf.core.script.AviatorScriptEngineFactory
+com.googlecode.aviator.script.AviatorScriptEngineFactory
+com.starflow.wf.core.script.spel.SpelScriptEngineFactory

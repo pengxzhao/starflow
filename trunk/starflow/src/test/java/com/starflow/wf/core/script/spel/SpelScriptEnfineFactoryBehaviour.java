@@ -14,7 +14,14 @@
  * limitations under the License.
  */
 
-package com.starflow.wf.engine;
+package com.starflow.wf.core.script.spel;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
+import javax.script.ScriptEngine;
+
+import org.junit.Test;
 
 /**
  * 
@@ -22,19 +29,12 @@ package com.starflow.wf.engine;
  * @date    2011-1-18 上午11:03:34
  * @version 
  */
-public interface ScriptEngineConstants {
-	/**
-	 * JavaScript
-	 */
-	public String JAVASCRIPT = "javascript";
-	
-	/**
-	 * FreeMarker
-	 */
-	public String FREEMARKER = "FreeMarker";
-	
-	/**
-	 * Aviator
-	 */
-	public String AVIATOR = "Aviator";
+public class SpelScriptEnfineFactoryBehaviour {
+	@Test
+	public void shouldReturnSpelScriptEngine() {
+		SpelScriptEngineFactory spelScriptEngineFactory = new SpelScriptEngineFactory();
+		ScriptEngine scriptEngine = spelScriptEngineFactory.getScriptEngine();
+		assertTrue(scriptEngine instanceof SpelScriptEngine);
+		assertEquals("SpringExpression", (String) spelScriptEngineFactory.getParameter(ScriptEngine.NAME));
+	}
 }

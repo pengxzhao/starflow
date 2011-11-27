@@ -20,12 +20,11 @@ import java.util.Map;
 
 import javax.script.Bindings;
 import javax.script.ScriptEngine;
-import javax.script.ScriptEngineManager;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.starflow.wf.engine.ScriptEngineConstants;
+import com.starflow.wf.core.util.ScriptEngineHolder;
 import com.starflow.wf.engine.core.expression.IExpressionHandler;
 import com.starflow.wf.engine.core.expression.RuntimeExpressionException;
 import com.starflow.wf.engine.model.elements.TransitionElement;
@@ -40,9 +39,8 @@ abstract public class AbstractAviatorExpressionHandler implements IExpressionHan
 	protected final Logger logger = LoggerFactory.getLogger(getClass());
 
 	@Override
-	public boolean execute(ScriptEngineManager engineManager,
-			TransitionElement transition, Map<String, Object> conditions) {
-		ScriptEngine engine = engineManager.getEngineByName(ScriptEngineConstants.AVIATOR);
+	public boolean execute(TransitionElement transition, Map<String, Object> conditions) {
+		ScriptEngine engine = ScriptEngineHolder.getScriptEngine();
 		
 		//创建执行表达式
 		String expression = buildExpression(transition, conditions);

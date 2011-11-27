@@ -21,8 +21,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CopyOnWriteArrayList;
 
-import javax.script.ScriptEngineManager;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
@@ -65,9 +63,6 @@ public class ProcessEngine {
 	
 	private Configuration configuration;
 	
-	//ScriptEngine Manager
-	private ScriptEngineManager scriptEngineManager;   
-	
 	/**
 	 * 执行自动环节Action
 	 */
@@ -106,8 +101,6 @@ public class ProcessEngine {
 		while(iterator.hasNext()) {
 			processFilters.add(map.get(iterator.next()));
 		}
-		
-		scriptEngineManager = new ScriptEngineManager();
 	}
 		
 	public void addFilter(ProcessFilter filter) {
@@ -156,9 +149,5 @@ public class ProcessEngine {
 
 	public void setExecutorService(ExecutorService executorService) {
 		this.executorService = executorService;
-	}
-
-	public ScriptEngineManager getScriptEngineManager() {
-		return scriptEngineManager;
 	}
 }
