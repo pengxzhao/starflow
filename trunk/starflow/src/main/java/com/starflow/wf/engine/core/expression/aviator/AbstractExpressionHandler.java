@@ -35,7 +35,7 @@ import com.starflow.wf.engine.model.elements.TransitionElement;
  * @date    2011-1-18 上午11:03:34
  * @version 
  */
-abstract public class AbstractAviatorExpressionHandler implements IExpressionHandler {
+abstract public class AbstractExpressionHandler implements IExpressionHandler {
 	protected final Logger logger = LoggerFactory.getLogger(getClass());
 
 	@Override

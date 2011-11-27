@@ -19,7 +19,7 @@ package com.starflow.wf.engine.core.expression;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.starflow.wf.engine.core.expression.aviator.AbstractAviatorExpressionHandler;
+import com.starflow.wf.engine.core.expression.aviator.AbstractExpressionHandler;
 import com.starflow.wf.engine.core.expression.xpath.XPathBuilder;
 import com.starflow.wf.engine.model.elements.TransitionElement;
 
@@ -28,7 +28,7 @@ import com.starflow.wf.engine.model.elements.TransitionElement;
  * @author libinsong1204@gmail.com
  * @version 1.0
  */
-public class SimpleExpressionHandler extends AbstractAviatorExpressionHandler {
+public class SimpleExpressionHandler extends AbstractExpressionHandler {
 	private static final String XPATH_PREFIX = "xp:";
 	private static Map<String, String> compTypes = new HashMap<String, String>();
 	

@@ -18,7 +18,7 @@ package com.starflow.wf.engine.core.expression;
 
 import java.util.Map;
 
-import com.starflow.wf.engine.core.expression.aviator.AbstractAviatorExpressionHandler;
+import com.starflow.wf.engine.core.expression.aviator.AbstractExpressionHandler;
 import com.starflow.wf.engine.model.elements.TransitionElement;
 
 /**
@@ -26,7 +26,7 @@ import com.starflow.wf.engine.model.elements.TransitionElement;
  * @author libinsong1204@gmail.com
  * @version 1.0
  */
-public class ComplexExpressionHandler extends AbstractAviatorExpressionHandler {
+public class ComplexExpressionHandler extends AbstractExpressionHandler {
 
 	@Override
 	public String buildExpression(TransitionElement transition, Map<String, Object> conditions) {
