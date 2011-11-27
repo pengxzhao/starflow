@@ -7,7 +7,6 @@ package com.starflow.test;
 
 import org.junit.Before;
 
-import com.starflow.test.util.TestUtil;
 import com.starflow.wf.engine.ProcessEngine;
 import com.starflow.wf.engine.ProcessEngineBuilder;
 import com.starflow.wf.engine.service.IActivityInstService;
@@ -36,9 +35,6 @@ public abstract class AbstractFlowTest {
 		procInstService = processEngine.getProcessInstanceService();
 		workItemService = processEngine.getWorkItemService();
 		activityInstService = processEngine.getActivityInstService();
-		
-		//清除测试数据
-		TestUtil.cleanData(processEngine.getApplicationContext());
 		
 		//添加filter
 		processEngine.addFilter(new LoggerProcessFilter());
