@@ -12,16 +12,16 @@
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
 		
-    <bean class="com.starflow.wf.core.key.SequenceFactory" init-method="init">
+    <bean class="com.googlecode.starflow.core.key.SequenceFactory" init-method="init">
 		<property name="uniqueTableApp">
-			<bean class="com.starflow.wf.core.key.impl.DefaultUniqueTableApp">
+			<bean class="com.googlecode.starflow.core.key.impl.DefaultUniqueTableApp">
 		    	<constructor-arg index="0" ref="dataSource" />
 		    </bean>
 		</property>
 	</bean>
 	
 	<!-- =================================Dao Part==================================== -->
-	<bean id="processDefineRepository" class="com.starflow.wf.engine.repository.impl.ProcessDefineRepositoryImpl">
+	<bean id="processDefineRepository" class="com.googlecode.starflow.engine.repository.impl.ProcessDefineRepositoryImpl">
 		<constructor-arg index="0">
 			<bean class="org.springframework.cache.concurrent.ConcurrentMapCacheFactoryBean">
 		    	<property name="name" value="starflow" />
@@ -30,15 +30,15 @@
 		<property name="dataSource" ref="dataSource" />
 	</bean>
 	
-	<bean id="processInstanceRepository" class="com.starflow.wf.engine.repository.impl.ProcessInstanceRepositoryImpl">
+	<bean id="processInstanceRepository" class="com.googlecode.starflow.engine.repository.impl.ProcessInstanceRepositoryImpl">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
 	
-	<bean id="activityInstRepository" class="com.starflow.wf.engine.repository.impl.ActivityInstRepositoryImpl">
+	<bean id="activityInstRepository" class="com.googlecode.starflow.engine.repository.impl.ActivityInstRepositoryImpl">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
 	
-	<bean id="workItemRepository" class="com.starflow.wf.engine.repository.impl.WorkItemRepositoryImpl">
+	<bean id="workItemRepository" class="com.googlecode.starflow.engine.repository.impl.WorkItemRepositoryImpl">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
 
@@ -46,15 +46,15 @@
 		  p:dataSource-ref="dataSource" />
 		  
 	<!-- =================================Listener Part==================================== -->
-	<bean class="com.starflow.wf.engine.event.listener.ProcessStartListener"></bean>
-	<bean class="com.starflow.wf.engine.event.listener.ProcessFinishListener"></bean>
-	<bean class="com.starflow.wf.engine.event.listener.ProcessTerminalListener"></bean>
-	<bean class="com.starflow.wf.engine.event.listener.ActivityCreateListener"></bean>
-	<bean class="com.starflow.wf.engine.event.listener.ActivityStartListener"></bean>
-	<bean class="com.starflow.wf.engine.event.listener.ActivityRestartListener"></bean>
-	<bean class="com.starflow.wf.engine.event.listener.ActivityFinishListener"></bean>
-	<bean class="com.starflow.wf.engine.event.listener.ActivityTerminalListener"></bean>
+	<bean class="com.googlecode.starflow.engine.event.listener.ProcessStartListener"></bean>
+	<bean class="com.googlecode.starflow.engine.event.listener.ProcessFinishListener"></bean>
+	<bean class="com.googlecode.starflow.engine.event.listener.ProcessTerminalListener"></bean>
+	<bean class="com.googlecode.starflow.engine.event.listener.ActivityCreateListener"></bean>
+	<bean class="com.googlecode.starflow.engine.event.listener.ActivityStartListener"></bean>
+	<bean class="com.googlecode.starflow.engine.event.listener.ActivityRestartListener"></bean>
+	<bean class="com.googlecode.starflow.engine.event.listener.ActivityFinishListener"></bean>
+	<bean class="com.googlecode.starflow.engine.event.listener.ActivityTerminalListener"></bean>
 	
 	<!-- =================================ORG Part==================================== -->
-	<bean id="WFOMService" class="com.starflow.wf.service.spi.impl.DefaultWFOMService"></bean>
+	<bean id="WFOMService" class="com.googlecode.starflow.service.spi.impl.DefaultWFOMService"></bean>
 </beans>
